@@ -14,7 +14,12 @@ import javax.swing.JLabel;
 
 import jaco.mp3.player.MP3Player;
 import javax.swing.JTextField;
-
+/**
+ * 
+ * @author Diyadin
+ * @Version 1.0
+ *
+ */
 public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 
 	private JFrame frame;
@@ -26,22 +31,15 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 	JButton btnPaus = new JButton("");
 	Methods methods = new Methods();
 	JLabel lblNewLabel = new JLabel("New label");
+	/**
+	 *
+	 *TYPING SOMETHING 1!!!"#!"#!"#
+	 *
+	 *
+	 */
 	
-	public static void main(String[] args) {
 		final JFileChooser fileChooser = new JFileChooser();
 		
-		
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Mp3Player window = new Mp3Player();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public Mp3Player() {
 		initialize();
@@ -54,7 +52,7 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 51, 102));
-		frame.setBounds(100, 100, 368, 166);
+		frame.setBounds(100, 100, 500, 200);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 
@@ -62,20 +60,12 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		// Button Eject
 		Image iconForOpen = new ImageIcon(this.getClass().getResource("/choose.png")).getImage();
 		btnOpen.setIcon(new ImageIcon(iconForOpen));
-		/*btnOpen.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				JFileChooser fileChooser = new JFileChooser();
-				int result = fileChooser.showOpenDialog(null);
-				File selectedFile = fileChooser.getSelectedFile();
+		btnOpen.setBounds(37, 84, 32, 29);
+		
+		
 			
-			}
-		});*/
-		btnOpen.setBounds(92, 84, 32, 29);
+		
 		frame.getContentPane().add(btnOpen);
-		
-			
-			
-		
 		
 		
 		// Button Play
@@ -83,14 +73,14 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		Image iconForPlay = new ImageIcon(this.getClass().getResource("/play.png")).getImage();
 		btnPlay.setIcon(new ImageIcon(iconForPlay));
 		
-		btnPlay.setBounds(155, 84, 32, 29);
+		btnPlay.setBounds(104, 84, 32, 29);
 		frame.getContentPane().add(btnPlay);
 
 		//Button Pause
 		Image iconForPaus = new ImageIcon(this.getClass().getResource("/paus.png")).getImage();
 		btnPaus.setIcon(new ImageIcon(iconForPaus));
 		
-		btnPaus.setBounds(199, 84, 32, 29);
+		btnPaus.setBounds(148, 84, 32, 29);
 		frame.getContentPane().add(btnPaus);
 				
 			
@@ -101,11 +91,13 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		btnStop.setIcon(new ImageIcon(iconForStop));
 			
 		
-		btnStop.setBounds(243, 84, 32, 29);
+		btnStop.setBounds(192, 84, 32, 29);
 		frame.getContentPane().add(btnStop);
 
 		lblNewLabel.setBounds(52, 31, 196, 16);
 		frame.getContentPane().add(lblNewLabel);
+
+		frame.setVisible(true);
 
 	}
 	public void addActionListener(){
