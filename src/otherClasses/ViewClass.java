@@ -1,4 +1,6 @@
-import java.awt.EventQueue;
+package otherClasses;
+
+
 import java.awt.Image;
 
 import javax.swing.JFrame;
@@ -8,28 +10,26 @@ import javax.swing.JFileChooser;
 
 import java.awt.Color;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
 import jaco.mp3.player.MP3Player;
-import javax.swing.JTextField;
 /**
  * 
  * @author Diyadin
  * @Version 1.0
  *
  */
-public class Mp3Player extends javax.swing.JFrame implements ActionListener {
+public class ViewClass extends javax.swing.JFrame implements ActionListener {
 
 	private JFrame frame;
 	MP3Player player = new MP3Player();
-
+// Variables declared on global level
 	JButton btnStop = new JButton("");
 	JButton btnOpen = new JButton("");
 	JButton btnPlay = new JButton("");
 	JButton btnPaus = new JButton("");
-	Methods methods = new Methods();
+	PlayerMethods methods = new PlayerMethods();
 	JLabel lblNewLabel = new JLabel("New label");
 	/**
 	 *
@@ -41,7 +41,7 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		final JFileChooser fileChooser = new JFileChooser();
 		
 
-	public Mp3Player() {
+	public ViewClass() {
 		initialize();
 		addActionListener();
 	
@@ -50,6 +50,7 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 	
 
 	private void initialize() {
+	// Creating the frame with its design, size and the action to exit when closed
 		frame = new JFrame();
 		frame.getContentPane().setBackground(new Color(0, 51, 102));
 		frame.setBounds(100, 100, 500, 200);
@@ -57,18 +58,16 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		frame.getContentPane().setLayout(null);
 
 		
-		// Button Eject
+		//Design for the button "Open"
+		
 		Image iconForOpen = new ImageIcon(this.getClass().getResource("/choose.png")).getImage();
 		btnOpen.setIcon(new ImageIcon(iconForOpen));
 		btnOpen.setBounds(37, 84, 32, 29);
 		
-		
-			
-		
 		frame.getContentPane().add(btnOpen);
 		
+		//Design for the button "Play"
 		
-		// Button Play
 		btnPlay.setBackground(Color.WHITE);
 		Image iconForPlay = new ImageIcon(this.getClass().getResource("/play.png")).getImage();
 		btnPlay.setIcon(new ImageIcon(iconForPlay));
@@ -76,7 +75,7 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		btnPlay.setBounds(104, 84, 32, 29);
 		frame.getContentPane().add(btnPlay);
 
-		//Button Pause
+		//Design for the button "pause"
 		Image iconForPaus = new ImageIcon(this.getClass().getResource("/paus.png")).getImage();
 		btnPaus.setIcon(new ImageIcon(iconForPaus));
 		
@@ -86,11 +85,11 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 			
 			
 
-		// Button Stop
+		// Giving button "stop" an icon
 		Image iconForStop = new ImageIcon(this.getClass().getResource("/stop.png")).getImage();
 		btnStop.setIcon(new ImageIcon(iconForStop));
 			
-		
+		// giving it start up coordinates and size
 		btnStop.setBounds(192, 84, 32, 29);
 		frame.getContentPane().add(btnStop);
 
@@ -100,6 +99,7 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		frame.setVisible(true);
 
 	}
+	// Activating the ability to perform action for the buttons
 	public void addActionListener(){
 		btnStop.addActionListener(this);
 		btnPlay.addActionListener(this);
@@ -107,7 +107,7 @@ public class Mp3Player extends javax.swing.JFrame implements ActionListener {
 		btnPaus.addActionListener(this);
 			
 	}
-
+// Instructions for the buttons
 	public void actionPerformed(ActionEvent e) {
 	if(e.getSource()==btnStop){
 		methods.stop();

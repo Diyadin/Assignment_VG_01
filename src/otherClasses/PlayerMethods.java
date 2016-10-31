@@ -1,12 +1,22 @@
+package otherClasses;
+
 import java.io.File;
 
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 
+import interfaces.PlayerInterface;
 import jaco.mp3.player.MP3Player;
+/**
+ * 
+ * @author Diyadin
+ * @Version 1.0
+ */
 
-public class Methods implements Interface {
+// Implementing interface and all the methods in it.
+public class PlayerMethods implements PlayerInterface {
 
+	// calling and giving methods and objects new variable names,
 	MP3Player  player = new MP3Player();
 	JLabel lblNewLabel = new JLabel("New label");
 	
